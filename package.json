@@ -1,7 +1,7 @@
 {
-  "name": "learning-webpack",
+  "name": "Minimalist Todo List",
   "version": "1.0.0",
-  "description": "",
+  "description": "A To-Do List made by Benjamin",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -16,9 +16,9 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/benjp009/learning-webpack/issues"
+    "url": "https://github.com/benjp009/To-do-list/issues"
   },
-  "homepage": "https://github.com/benjp009/learning-webpack#readme",
+  "homepage": "https://github.com/benjp009/To-do-list#readme",
   "devDependencies": {
     "css-loader": "^6.5.1",
     "html-webpack-plugin": "^5.5.0",
