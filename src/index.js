@@ -11,3 +11,9 @@ function component() {
 }
 
 document.body.appendChild(component());
+
+tasks = [
+  description,
+  completed,
+  index
+];
