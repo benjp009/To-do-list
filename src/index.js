@@ -1,6 +1,7 @@
 import './style.css';
 
-let TASKS = [
+/*eslint no-unused-vars: "error"*/
+const TASKS = [
   {
     description: 'Task 1',
     completed: false,
