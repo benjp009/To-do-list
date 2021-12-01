@@ -1,6 +1,6 @@
 import './style.css';
 
-/*eslint no-unused-vars: "error"*/
+/* eslint no-unused-vars: "off" */
 const TASKS = [
   {
     description: 'Task 1',
