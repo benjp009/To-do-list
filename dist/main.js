@@ -116,7 +116,7 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\nconst TASKS = [\n  {\n    description: 'Task 1',\n    completed: false,\n    index: 1,\n  },\n  {\n    description: 'Task 2',\n    completed: false,\n    index: 2,\n  },\n  {\n    description: 'Task 3',\n    completed: false,\n    index: 3,\n  },\n  {\n    description: 'Task 4',\n    completed: false,\n    index: 4,\n  },\n  {\n    description: 'Task 5',\n    completed: false,\n    index: 5,\n  },\n];\n\n\n//# sourceURL=webpack://to-do-list/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\n/* eslint no-unused-vars: \"off\" */\nconst TASKS = [\n  {\n    description: 'Task 1',\n    completed: false,\n    index: 1,\n  },\n  {\n    description: 'Task 2',\n    completed: false,\n    index: 2,\n  },\n  {\n    description: 'Task 3',\n    completed: false,\n    index: 3,\n  },\n  {\n    description: 'Task 4',\n    completed: false,\n    index: 4,\n  },\n  {\n    description: 'Task 5',\n    completed: false,\n    index: 5,\n  },\n];\n\n\n//# sourceURL=webpack://to-do-list/./src/index.js?");
 
 /***/ })
 
