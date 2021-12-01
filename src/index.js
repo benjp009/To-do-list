@@ -1,6 +1,6 @@
 import './style.css';
 
-const TASKS = [
+let TASKS = [
   {
     description: 'Task 1',
     completed: false,
