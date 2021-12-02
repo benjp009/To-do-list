@@ -1,7 +1,7 @@
 import './style.css';
 
 /* eslint no-unused-vars: "off" */
-const TASKS = [
+const Tasks = [
   {
     description: 'Task 1',
     completed: false,
@@ -28,3 +28,10 @@ const TASKS = [
     index: 5,
   },
 ];
+
+const toDoList = document.querySelector('.tasks');
+
+// Iterate through the array of todo-list tasks
+const renderTask = (toDoList) => {
+  Tasks.forEach(task);
+}
