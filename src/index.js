@@ -1,3 +1,6 @@
+import _ from 'lodash';
+import './style.css';
+
 const TASKS = [
   {
     description: 'Task 1',
