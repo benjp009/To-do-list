@@ -1,10 +1,10 @@
 /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ([
 /* 0 */,
 /* 1 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -55,6 +55,7 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /* 2 */
 /***/ ((module) => {
 
+"use strict";
 
 
 var stylesInDOM = [];
@@ -164,6 +165,7 @@ module.exports = function (list, options) {
 /* 3 */
 /***/ ((module) => {
 
+"use strict";
 
 
 /* istanbul ignore next  */
@@ -239,6 +241,7 @@ module.exports = domAPI;
 /* 4 */
 /***/ ((module) => {
 
+"use strict";
 
 
 var memo = {};
@@ -283,6 +286,7 @@ module.exports = insertBySelector;
 /* 5 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 
 /* istanbul ignore next  */
@@ -300,6 +304,7 @@ module.exports = setAttributesWithoutAttributes;
 /* 6 */
 /***/ ((module) => {
 
+"use strict";
 
 
 /* istanbul ignore next  */
@@ -316,6 +321,7 @@ module.exports = insertStyleElement;
 /* 7 */
 /***/ ((module) => {
 
+"use strict";
 
 
 /* istanbul ignore next  */
@@ -337,6 +343,7 @@ module.exports = styleTagTransform;
 /* 8 */
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -350,7 +357,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n/* reset */\nbody,\np,\na,\nul,\nli {\n  margin: 0;\n  padding: 0;\n  text-decoration: none;\n  list-style: none;\n}\n\n/* fonts */\nbody {\n  font-family: 'Open Sans', 'Lucida Grande', tahoma, verdana, arial, sans-serif;\n  font-size: 14px;\n  font-weight: 300;\n  background-color: #f1f2f5;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  height: 60vh;\n}\n\n.title {\n  text-align: center;\n}\n\n.title i {\n  background-color: #2e8ae6;\n  padding: 30px;\n  font-size: 30px;\n  border-radius: 10px;\n  align-self: center;\n}\n\n.list {\n  background-color: white;\n  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);\n  padding: 0 20px;\n}\n\n.todo-list {\n  max-width: 480px;\n  margin: auto;\n  box-shadow: 0 2px 8px rgb(0 0 0 / 15%);\n  background-color: #fff;\n}\n\n.todo-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 5px 20px;\n  border-bottom: 1px solid grey;\n}\n\n.todo-header h2 {\n  font-size: 16px;\n}\n\n.tasks-form {\n  display: flex;\n  justify-content: space-between;\n\n  input[type='text'] {\n    width: 100%;\n    padding: 0 40px 0 1rem;\n    line-height: 50px;\n    height: 50px;\n    border: none;\n    font-style: italic;\n  }\n}\n\n.tasks {\n  display: grid;\n  grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));\n  margin-top: 20px;\n  background-color: #fff;\n\n  .task {\n    display: flex;\n    align-items: center;\n    padding: 20px;\n    border: 1px solid #e6e6e6;\n\n    .todo-icon {\n      margin-left: auto;\n      width: 20px;\n      height: 20px;\n    }\n  }\n}\n\n.icon-return {\n  background-image: url('https://web.archive.org/web/20180728085226im_/http://www.getminimalist.com/assets/enter-b06ec7fb441bc0e40d61ba975a0291ad.png');\n  appearance: none;\n  border: none;\n  background-color: transparent;\n  background-repeat: no-repeat;\n  background-position: center;\n  width: 40px;\n  height: 50px;\n  cursor: pointer;\n}\n\n.delete-tasks {\n  background-color: #f6f6f6;\n\n  .delete-all {\n    appearance: none;\n    outline: none;\n    border: none;\n    padding: 1rem 0;\n    display: block;\n    opacity: 0.5;\n    cursor: pointer;\n    width: 100%;\n  }\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n/* reset */\nbody,\np,\na,\nul,\nli {\n  margin: 0;\n  padding: 0;\n  text-decoration: none;\n  list-style: none;\n}\n\n/* fonts */\nbody {\n  font-family: 'Open Sans', 'Lucida Grande', tahoma, verdana, arial, sans-serif;\n  font-size: 14px;\n  font-weight: 300;\n  background-color: #f1f2f5;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  height: 60vh;\n}\n\n.title {\n  text-align: center;\n}\n\n.title i {\n  background-color: #2e8ae6;\n  padding: 30px;\n  font-size: 30px;\n  border-radius: 10px;\n  align-self: center;\n}\n\n.list {\n  background-color: white;\n  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);\n  padding: 0 20px;\n}\n\n.todo-list {\n  max-width: 480px;\n  margin: auto;\n  box-shadow: 0 2px 8px rgb(0 0 0 / 15%);\n  background-color: #fff;\n}\n\n.todo-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 5px 20px;\n  border-bottom: 1px solid grey;\n}\n\n.todo-header h2 {\n  font-size: 16px;\n}\n\n.tasks-form {\n  display: flex;\n  justify-content: space-between;\n\n  input[type='text'] {\n    width: 100%;\n    padding: 0 40px 0 1rem;\n    line-height: 50px;\n    height: 50px;\n    border: none;\n    font-style: italic;\n  }\n}\n\n.tasks {\n  display: grid;\n  grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));\n  margin-top: 20px;\n  background-color: #fff;\n\n  .task {\n    display: flex;\n    align-items: center;\n    padding: 20px;\n    border: 1px solid #e6e6e6;\n\n    .todo-icon {\n      margin-left: auto;\n      width: 20px;\n      height: 20px;\n    }\n  }\n}\n\n.icon-return {\n  background-image: url('https://web.archive.org/web/20180728085226im_/http://www.getminimalist.com/assets/enter-b06ec7fb441bc0e40d61ba975a0291ad.png');\n  appearance: none;\n  border: none;\n  background-color: transparent;\n  background-repeat: no-repeat;\n  background-position: center;\n  width: 40px;\n  height: 50px;\n  cursor: pointer;\n}\n\n.delete-tasks {\n  background-color: #f6f6f6;\n\n  .delete-all {\n    appearance: none;\n    outline: none;\n    border: none;\n    padding: 1rem 0;\n    display: block;\n    opacity: 0.5;\n    cursor: pointer;\n    width: 100%;\n  }\n}\n\n@media screen and (max-width: 480px) {\n  .todo-list {\n    width: 100%;\n  }\n\n  .tasks {\n    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));\n  }\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -359,6 +366,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, "\n/* reset */\nbody,\np,\na,\nul,\nli 
 /* 9 */
 /***/ ((module) => {
 
+"use strict";
 
 
 module.exports = function (i) {
@@ -369,6 +377,7 @@ module.exports = function (i) {
 /* 10 */
 /***/ ((module) => {
 
+"use strict";
 
 
 /*
@@ -472,6 +481,34 @@ module.exports = function (cssWithMappingToString) {
   return list;
 };
 
+/***/ }),
+/* 11 */
+/***/ (() => {
+
+
+
+/***/ }),
+/* 12 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+class statusUpdates {
+  static updateStatus(task, status) {
+    if (status === 'completed') {
+      task.completed = true;
+    } else {
+      task.completed = false;
+    }
+  }
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (statusUpdates);
+
+
 /***/ })
 /******/ 	]);
 /************************************************************************/
@@ -542,44 +579,70 @@ module.exports = function (cssWithMappingToString) {
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _tasks_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11);
+/* harmony import */ var _tasks_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tasks_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _update_status_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(12);
+/* eslint-disable max-classes-per-file */
 
 
-const TASKS = [
-  {
-    description: 'Task 1',
-    completed: false,
-    index: 1,
-  },
-  {
-    description: 'Task 2',
-    completed: false,
-    index: 2,
-  },
-  {
-    description: 'Task 3',
-    completed: false,
-    index: 3,
-  },
-  {
-    description: 'Task 4',
-    completed: false,
-    index: 4,
-  },
-  {
-    description: 'Task 5',
-    completed: false,
-    index: 5,
-  },
-];
 
-const todoList = document.querySelector('.tasks');
-// Iterate through the array of todo-list tasks
-const renderTasks = (todoList) => {
-  TASKS.forEach((task) => {
+
+// Store Class: Handles localStorage
+class Store {
+  static getTasks() {
+    let tasks;
+    if (localStorage.getItem('tasks') === null) {
+      tasks = [...(_tasks_js__WEBPACK_IMPORTED_MODULE_1___default())]; // copy the array
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+    } else {
+      tasks = JSON.parse(localStorage.getItem('tasks'));
+    }
+    return tasks;
+  }
+
+  static addTask(task) {
+    const tasks = Store.getTasks();
+    tasks.push(task);
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }
+
+  static changeTaskStatus(e) {
+    const TASKS = Store.getTasks();
+
+    const task = TASKS.find(
+      (t) => t.index === parseInt(e.target.id.split('-')[1], 10),
+    );
+    if (e.target.checked) {
+      _update_status_js__WEBPACK_IMPORTED_MODULE_2__["default"].updateStatus(task, 'completed');
+    } else {
+      _update_status_js__WEBPACK_IMPORTED_MODULE_2__["default"].updateStatus(task, 'uncompleted');
+    }
+
+    localStorage.setItem('tasks', JSON.stringify(TASKS));
+  }
+
+  static removeTask(task) {
+    let tasks = Store.getTasks();
+    tasks = tasks.filter((t) => t.id !== task.id);
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }
+}
+
+// UI Class: Handle UI Class
+class UI {
+  static displayTasks() {
+    const tasks = Store.getTasks();
+
+    tasks.forEach((task) => UI.addTaskToList(task));
+  }
+
+  static addTaskToList(task) {
+    const todoList = document.querySelector('.tasks');
     // Create a new list item
     const listItem = document.createElement('div');
     // Add classname to the list item
@@ -587,22 +650,58 @@ const renderTasks = (todoList) => {
 
     // Add HTML to the list item
     listItem.innerHTML = `
-    <input
-      type="checkbox"
+   <input
+     type="checkbox"
       id="task-${task.index}"
-    />
-    <label for="task-${task.index}">
-      <span class="custom-checkbox"></span>
-      ${task.description}
-    </label>
-    <i class="fas fa-ellipsis-v"></i>
-    `;
+   />
+   <label for="task-${task.index}">
+     <span class="custom-checkbox"></span>
+     ${task.description}
+   </label>
+   <svg xmlns="http://www.w3.org/2000/svg" class="todo-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+   </svg>
+   `;
+
     // Add the list item to the todo-list
     todoList.appendChild(listItem);
-  });
-};
+  }
 
-document.addEventListener('DOMContentLoaded', renderTasks(todoList));
+  // keep completed tasks checked on page reload
+  static checkCompletedTasks() {
+    const tasks = Store.getTasks();
+    tasks.forEach((task) => {
+      if (task.completed === true) {
+        document.getElementById(`task-${task.index}`).checked = true;
+      }
+    });
+  }
+
+  static renderTaskCount() {
+    const tasks = Store.getTasks();
+    const uncompletedTasks = tasks.filter((task) => task.completed === false);
+    const taskCount = document.querySelector('.task-count');
+    taskCount.textContent = `${uncompletedTasks.length}`;
+  }
+
+  static deleteTask(task) {
+    const taskList = document.querySelector('.tasks');
+    const taskItem = document.getElementById(`task-${task.index}`);
+    taskList.removeChild(taskItem);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', UI.displayTasks);
+
+document.addEventListener('DOMContentLoaded', UI.renderTaskCount);
+
+document.addEventListener('DOMContentLoaded', UI.checkCompletedTasks);
+
+// event listener for checkbox change
+document.querySelector('.tasks').addEventListener('change', (e) => {
+  Store.changeTaskStatus(e);
+  UI.renderTaskCount();
+});
 
 })();
 
