@@ -1,6 +1,6 @@
 # To-Do List
 
-> I am creating a to-do list for a personal project.
+> In this Project I have created a to-do list where we have implemented the feature like adding or removing the task, also they would track if the task is completed or not.
 
 ## Built With
 
