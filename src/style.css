@@ -28,7 +28,7 @@ body {
   text-align: center;
 }
 
-.title i {
+.check-icon {
   background-color: #2e8ae6;
   padding: 30px;
   font-size: 30px;
@@ -76,23 +76,10 @@ body {
 }
 
 .tasks {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+  display: flex;
+  flex-direction: column;
   margin-top: 20px;
   background-color: #fff;
-
-  .task {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    border: 1px solid #e6e6e6;
-
-    .todo-icon {
-      margin-left: auto;
-      width: 20px;
-      height: 20px;
-    }
-  }
 }
 
 .icon-return {
@@ -127,7 +114,4 @@ body {
     width: 100%;
   }
 
-  .tasks {
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  }
 }

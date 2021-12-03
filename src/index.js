@@ -1,5 +1,8 @@
-/* eslint-disable max-classes-per-file */
 import './style.css';
+import '@fortawesome/fontawesome-free/js/fontawesome'
+import '@fortawesome/fontawesome-free/js/solid'
+import '@fortawesome/fontawesome-free/js/regular'
+import '@fortawesome/fontawesome-free/js/brands'
 import TASKS from './tasks.js';
 import statusUpdates from './update-status.js';
 
