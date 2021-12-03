@@ -26,7 +26,6 @@ body {
 
 .title {
   text-align: center;
-
 }
 
 .title i {
@@ -37,19 +36,31 @@ body {
   align-self: center;
 }
 
+.list {
+  background-color: white;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  padding: 0 20px;
+}
+
 .todo-list {
   max-width: 480px;
   margin: auto;
   box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
   background-color: #fff;
 }
+
 .todo-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  padding: 0 20px;
+  padding: 5px 20px;
+  border-bottom: 1px solid grey;
 }
+
+.todo-header h2 {
+  font-size: 16px;
+}
+
 .tasks-form {
   display: flex;
   justify-content: space-between;
@@ -62,6 +73,7 @@ body {
     font-style: italic;
   }
 }
+
 .tasks {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
@@ -79,6 +91,7 @@ body {
     }
   }
 }
+
 .icon-return {
   background-image: url('https://web.archive.org/web/20180728085226im_/http://www.getminimalist.com/assets/enter-b06ec7fb441bc0e40d61ba975a0291ad.png');
   appearance: none;
@@ -90,6 +103,7 @@ body {
   height: 50px;
   cursor: pointer;
 }
+
 .delete-tasks {
   background-color: #f6f6f6;
   .delete-all {
