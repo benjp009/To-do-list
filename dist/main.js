@@ -1,10 +1,10 @@
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ([
 /* 0 */,
 /* 1 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -55,7 +55,6 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /* 2 */
 /***/ ((module) => {
 
-"use strict";
 
 
 var stylesInDOM = [];
@@ -165,7 +164,6 @@ module.exports = function (list, options) {
 /* 3 */
 /***/ ((module) => {
 
-"use strict";
 
 
 /* istanbul ignore next  */
@@ -241,7 +239,6 @@ module.exports = domAPI;
 /* 4 */
 /***/ ((module) => {
 
-"use strict";
 
 
 var memo = {};
@@ -286,7 +283,6 @@ module.exports = insertBySelector;
 /* 5 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-"use strict";
 
 
 /* istanbul ignore next  */
@@ -304,7 +300,6 @@ module.exports = setAttributesWithoutAttributes;
 /* 6 */
 /***/ ((module) => {
 
-"use strict";
 
 
 /* istanbul ignore next  */
@@ -321,7 +316,6 @@ module.exports = insertStyleElement;
 /* 7 */
 /***/ ((module) => {
 
-"use strict";
 
 
 /* istanbul ignore next  */
@@ -343,7 +337,6 @@ module.exports = styleTagTransform;
 /* 8 */
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -366,7 +359,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, "\n/* reset */\nbody,\np,\na,\nul,\nli 
 /* 9 */
 /***/ ((module) => {
 
-"use strict";
 
 
 module.exports = function (i) {
@@ -377,7 +369,6 @@ module.exports = function (i) {
 /* 10 */
 /***/ ((module) => {
 
-"use strict";
 
 
 /*
@@ -483,15 +474,47 @@ module.exports = function (cssWithMappingToString) {
 
 /***/ }),
 /* 11 */
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const TASKS = [
+  {
+    description: 'Task 1',
+    completed: false,
+    index: 1,
+  },
+  {
+    description: 'Task 2',
+    completed: false,
+    index: 2,
+  },
+  {
+    description: 'Task 3',
+    completed: false,
+    index: 3,
+  },
+  {
+    description: 'Task 4',
+    completed: false,
+    index: 4,
+  },
+  {
+    description: 'Task 5',
+    completed: false,
+    index: 5,
+  },
+];
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TASKS);
 
 
 /***/ }),
 /* 12 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -579,13 +602,11 @@ class statusUpdates {
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var _tasks_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11);
-/* harmony import */ var _tasks_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tasks_js__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _update_status_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(12);
 /* eslint-disable max-classes-per-file */
 
@@ -597,7 +618,7 @@ class Store {
   static getTasks() {
     let tasks;
     if (localStorage.getItem('tasks') === null) {
-      tasks = [...(_tasks_js__WEBPACK_IMPORTED_MODULE_1___default())]; // copy the array
+      tasks = [..._tasks_js__WEBPACK_IMPORTED_MODULE_1__["default"]]; // copy the array
       localStorage.setItem('tasks', JSON.stringify(tasks));
     } else {
       tasks = JSON.parse(localStorage.getItem('tasks'));
