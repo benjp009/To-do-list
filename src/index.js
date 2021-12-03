@@ -1,34 +1,55 @@
-import _ from 'lodash';
-import './style.css';
-import Refresh from './refresh.png';
-import Menu from './menu.png';
-import Check from './check.png';
-import Trash from './trash.png';
+const TASKS = [
+  {
+    description: 'Task 1',
+    completed: false,
+    index: 1,
+  },
+  {
+    description: 'Task 2',
+    completed: false,
+    index: 2,
+  },
+  {
+    description: 'Task 3',
+    completed: false,
+    index: 3,
+  },
+  {
+    description: 'Task 4',
+    completed: false,
+    index: 4,
+  },
+  {
+    description: 'Task 5',
+    completed: false,
+    index: 5,
+  },
+];
 
+const todoList = document.querySelector('.tasks');
+// Iterate through the array of todo-list tasks
+const renderTasks = (todoList) => {
+  TASKS.forEach((task) => {
+    // Create a new list item
+    const listItem = document.createElement('div');
+    // Add classname to the list item
+    listItem.classList.add('task');
 
-function component() {
-  const element = document.createElement('div');
+    // Add HTML to the list item
+    listItem.innerHTML = `
+    <input
+      type="checkbox"
+      id="task-${task.index}"
+    />
+    <label for="task-${task.index}">
+      <span class="custom-checkbox"></span>
+      ${task.description}
+    </label>
+    <i class="fas fa-ellipsis-v"></i>
+    `;
+    // Add the list item to the todo-list
+    todoList.appendChild(listItem);
+  });
+};
 
-  // Lodash, now imported by this script
-  element.classList.add('hello');
-
-  // Add the image to our existing div.
-  const refreshIcon = new Image();
-  refreshIcon.src = Refresh;
-
-  element.appendChild(refreshIcon);
-
-  return element;
-
-  const container = document.createElement('div');
-  container.classList.add('list-container');
-
-  const menuIcon = new Image();
-  menuIcon.src = Menu;
-
-  container.appendChild(menuIcon);
-
-  return container;
-}
-
-document.body.appendChild(component());
+document.addEventListener('DOMContentLoaded', renderTasks(todoList));

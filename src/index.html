@@ -3,10 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" href="style.css">
     <title>To Do List</title>
 </head>
 <body>
-    <h1>My To-do list</h1>
-    <h3>some icon</h3>
+  <div class="title">
+    <i class="fas fa-check"></i>
+    <h1>Ben's To-do list</h1>
+  </div>
+  <div class="container">
+    <div class="list">
+      <div class="todo-header">
+        <h2>Today's To-do</h2>
+        <i class="fas fa-sync-alt"></i>
+      </div>
+
+      <div class="todo-body">
+        <div class="new-task-creator">
+          <form action="#" class="tasks-form">
+            <input
+              type="text"
+              class="new task"
+              placeholder="Add to your list"
+            />
+            <input
+              id="submit-new-item"
+              type="submit"
+              tabindex="-1"
+              value=""
+              title="click this or press enter to submit"
+              class="icon-return"
+            />
+          </form>
+        </div>
+        <div class="tasks"></div>
+        <div class="delete-tasks">
+          <button class="btn delete-all" type="reset">
+            Clear all completed
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="list-text">
+    </div>
+  </div>
+
+  <script type = "text/javascript" src="index.js"></script>  
 </body>
 </html>
