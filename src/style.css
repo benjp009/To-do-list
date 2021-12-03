@@ -1,4 +1,3 @@
-
 /* reset */
 body,
 p,
@@ -10,7 +9,6 @@ li {
   text-decoration: none;
   list-style: none;
 }
-
 /* fonts */
 body {
   font-family: 'Open Sans', 'Lucida Grande', tahoma, verdana, arial, sans-serif;
@@ -21,50 +19,24 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 60vh;
+  height: 100vh;
 }
-
-.title {
-  text-align: center;
-}
-
-.title i {
-  background-color: #2e8ae6;
-  padding: 30px;
-  font-size: 30px;
-  border-radius: 10px;
-  align-self: center;
-}
-
-.list {
-  background-color: white;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-  padding: 0 20px;
-}
-
 .todo-list {
   max-width: 480px;
   margin: auto;
   box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
   background-color: #fff;
 }
-
 .todo-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 20px;
-  border-bottom: 1px solid grey;
+  width: 100%;
+  padding: 0 20px;
 }
-
-.todo-header h2 {
-  font-size: 16px;
-}
-
 .tasks-form {
   display: flex;
   justify-content: space-between;
-
   input[type='text'] {
     width: 100%;
     padding: 0 40px 0 1rem;
@@ -75,26 +47,70 @@ body {
   }
 }
 
+.delete-tasks {
+  background-color: #f6f6f6;
+
+  .clear-completed {
+    appearance: none;
+    outline: none;
+    border: none;
+    padding: 1rem 0;
+    display: block;
+    opacity: 0.5;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .d-none {
+    display: none;
+  }
+}
+
 .tasks {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
   margin-top: 20px;
   background-color: #fff;
-
   .task {
     display: flex;
     align-items: center;
-    padding: 20px;
+    padding: 0 20px;
     border: 1px solid #e6e6e6;
+
+    &.editing {
+      background-color: #fffeca;
+    }
+
+    input[type='text'] {
+      width: 90%;
+      margin: 0 5px;
+      border: none;
+      background: transparent;
+      padding: 15px;
+
+      &:focus-visible {
+        outline: none;
+      }
+    }
+
+    .d-none {
+      display: none;
+    }
+
+    .view {
+      .edit {
+        display: none;
+      }
+    }
 
     .todo-icon {
       margin-left: auto;
       width: 20px;
       height: 20px;
+      cursor: pointer;
     }
   }
 }
-
 .icon-return {
   background-image: url('https://web.archive.org/web/20180728085226im_/http://www.getminimalist.com/assets/enter-b06ec7fb441bc0e40d61ba975a0291ad.png');
   appearance: none;
@@ -107,26 +123,10 @@ body {
   cursor: pointer;
 }
 
-.delete-tasks {
-  background-color: #f6f6f6;
-
-  .delete-all {
-    appearance: none;
-    outline: none;
-    border: none;
-    padding: 1rem 0;
-    display: block;
-    opacity: 0.5;
-    cursor: pointer;
-    width: 100%;
-  }
-}
-
 @media screen and (max-width: 480px) {
   .todo-list {
     width: 100%;
   }
-
   .tasks {
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   }
