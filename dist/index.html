@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link
+     rel="stylesheet"
+     href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+     integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
+     crossorigin="anonymous"
+   />
     <link rel="stylesheet" href="style.css">
     <title>To Do List</title>
 <script defer src="main.js"></script></head>
@@ -23,6 +29,7 @@
         <div class="new-task-creator">
           <form action="#" class="tasks-form">
             <input
+              id="task-description"
               type="text"
               class="new-task"
               placeholder="Add to your list"
@@ -39,7 +46,7 @@
         </div>
         <div class="tasks"></div>
         <div class="delete-tasks">
-          <button class="btn delete-all" type="reset">
+          <button class="btn clear-completed" type="reset">
             Clear all completed
           </button>
         </div>
