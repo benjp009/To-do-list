@@ -1,4 +1,4 @@
-import statusUpdates from './statusUpdates.js';
+import statusUpdates from './StatusUpdates.js';
 
 // Store Class: Handles localStorage
 export default class Store {
