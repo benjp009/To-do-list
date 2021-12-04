@@ -1,127 +1,58 @@
 /* eslint-disable max-classes-per-file */
-import './style.css';
-import '@fortawesome/fontawesome-free/js/fontawesome';
-import '@fortawesome/fontawesome-free/js/solid';
-import '@fortawesome/fontawesome-free/js/regular';
-import '@fortawesome/fontawesome-free/js/brands';
+import './style.scss';
+import Store from './Store.js';
+import UI from './UI.js';
 
-const clear = document.querySelector('.clear');
-const list = document.getElementById('list');
-const input = document.getElementById('input');
+document.addEventListener('DOMContentLoaded', UI.displayTasks);
 
-// classes name
-const CHECK = 'fa-check-square';
-const UNCHECK = 'fa-square';
-const LINE_THROUGH = 'lineThrough';
+document.addEventListener('DOMContentLoaded', UI.checkCompletedTasks);
 
-// Variables
-let LIST;
-let id;
+document.addEventListener('DOMContentLoaded', UI.renderTaskCount);
 
-// Get item from Local Storage
-const data = localStorage.getItem('TODO');
-
-// load items
-/* eslint-disable prefer-arrow-callback */
-function loadList(array) {
-  array.forEach(function (item) {
-    /* eslint-disable no-use-before-define */
-    addToDo(item.name, item.id, item.done, item.trash);
-  });
-}
-
-// check if data is not empty
-if (data) {
-LIST = JSON.parse(data);
-id = LIST.length;
-loadList(LIST);
-} else {
-// if data isn't empty
-LIST = [];
-id = 0;
-}
-
-// clear local Storage
-/* eslint-disable prefer-arrow-callback */
-clear.addEventListener('click', function () {
-localStorage.clear();
-/* eslint-disable no-restricted-globals */
-location.reload();
+// event listener for checkbox change
+document.querySelector('.tasks').addEventListener('change', (e) => {
+  Store.changeTaskStatus(e);
+  UI.renderTaskCount();
 });
 
-// add to-do function
-function addToDo(toDo, id, done, trash) {
-if (trash) { return; }
+// Event: Add a task
+document.querySelector('.tasks-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const taskDescription = document.querySelector('#task-description').value;
 
-const DONE = done ? CHECK : UNCHECK;
-const LINE = done ? LINE_THROUGH : '';
+  if (taskDescription === '') {
+    alert('Please add a task');
+  } else {
+    const task = {
+      description: taskDescription,
+      completed: false,
+      index: Store.getTasks().length + 1,
+    };
 
-const item = `
- <li class="item">
-   <i class="far ${DONE}" job="complete" id="${id}"></i>
-   <p class="text ${LINE}"> ${toDo}</p>
-   <i class="fas fa-trash-alt" job="delete" id="${id}"></i>
- </li>`;
+    Store.addTask(task);
+    Store.updateTasksIndex();
 
-const position = 'beforeend';
-
-list.insertAdjacentHTML(position, item);
-}
-
-// add an item to the list on enter key
-document.addEventListener('keyup', function (event) {
-if (event.keyCode === 13) {
- const toDo = input.value;
-
- // if the input isn't empty
- if (toDo) {
-   addToDo(toDo, id, false, false);
-
-   LIST.push({
-     name: toDo,
-     /* eslint-disable object-shorthand */
-     id: id,
-     done: false,
-     trash: false,
-   });
-
-   // Add item from Local Storage
-   localStorage.setItem('TODO', JSON.stringify(LIST));
-   /* eslint-disable no-plusplus */
-   id++;
- }
- input.value = '';
-}
+    UI.addTaskToList(task);
+    UI.renderTaskCount();
+    document.querySelector('#task-description').value = '';
+  }
 });
 
-// Complete to do
-function completeToDo(element) {
-element.classList.toggle(CHECK);
-element.classList.toggle(UNCHECK);
-element.parentNode.querySelector('.text').classList.toggle(LINE_THROUGH);
+// Event: Remove a task
+document.querySelector('.tasks').addEventListener('click', (e) => {
+  if (e.target.classList.contains('delete-task')) {
+    UI.deleteTask(e.target);
+    Store.removeTask(e.target.previousElementSibling.textContent);
+    Store.updateTasksIndex();
+    UI.displayTasks();
+    UI.renderTaskCount();
+  }
+});
 
-/* eslint-disable no-unneeded-ternary */
-LIST[element.id].done = LIST[element.id].done ? false : true;
-}
-
-// Remove to do
-function removeToDo(element) {
-element.parentNode.parentNode.removeChild(element.parentNode);
-
-LIST[element.id].trash = true;
-}
-
-// target the element
-list.addEventListener('click', function (event) {
-const element = event.target; // return click element inside list
-const elementJob = element.attributes.job.value; // complete or delete
-
-if (elementJob === 'complete') {
- completeToDo(element);
-} else if (elementJob === 'delete') {
- removeToDo(element);
-}
-
-// Add item from Local Storage
-localStorage.setItem('TODO', JSON.stringify(LIST));
+// Event: Clear all completed
+document.querySelector('.clear-completed').addEventListener('click', () => {
+  Store.clearCompletedTasks();
+  Store.updateTasksIndex();
+  UI.displayTasks();
+  UI.renderTaskCount();
 });
