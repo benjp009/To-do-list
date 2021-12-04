@@ -30,87 +30,67 @@ body {
 
 .check-icon {
   background-color: #2e8ae6;
-  padding: 30px;
+  padding: 20px;
   font-size: 30px;
   border-radius: 10px;
   align-self: center;
 }
 
-.list {
+.content {
   background-color: white;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-  padding: 0 20px;
+  width: 40vw;
+  padding: 10px 20px;
 }
 
-.todo-list {
-  max-width: 480px;
-  margin: auto;
-  box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
-  background-color: #fff;
-}
-
-.todo-header {
+.form-title {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 5px 20px;
-  border-bottom: 1px solid grey;
-}
-
-.todo-header h2 {
-  font-size: 16px;
-}
-
-.tasks-form {
-  display: flex;
   justify-content: space-between;
-
-  input[type='text'] {
-    width: 100%;
-    padding: 0 40px 0 1rem;
-    line-height: 50px;
-    height: 50px;
-    border: none;
-    font-style: italic;
-  }
 }
 
-.tasks {
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-  background-color: #fff;
-}
-
-.icon-return {
-  background-image: url('https://web.archive.org/web/20180728085226im_/http://www.getminimalist.com/assets/enter-b06ec7fb441bc0e40d61ba975a0291ad.png');
-  appearance: none;
+.add-item #input {
+  padding: 10px 0;
+  width: 100%;
   border: none;
-  background-color: transparent;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 40px;
-  height: 50px;
-  cursor: pointer;
+  font-size: 18px;
+  font-style: italic;
 }
 
-.delete-tasks {
-  background-color: #f6f6f6;
-
-  .delete-all {
-    appearance: none;
-    outline: none;
-    border: none;
-    padding: 1rem 0;
-    display: block;
-    opacity: 0.5;
-    cursor: pointer;
-    width: 100%;
-  }
+.item {
+  display: grid;
+  grid-template-columns: 20px auto 20px;
+  padding: 10px 0;
 }
+
+.fa-square{
+  align-self: center;
+  font-size: 18px;
+}
+
+.fa-trash-alt {
+  align-self: center;
+  color: red;
+  font-size: 18px;
+}
+
+
+.text {
+  font-size: 20px;
+  align-self: center;
+  padding-left: 10px;
+}
+
+.fa-check-square {
+  align-self: center;
+  font-size: 18px;
+  color: green;
+}
+
+.lineThrough {
+  text-decoration: line-through;
+  color: grey;
+}
+
 
 @media screen and (max-width: 480px) {
-  .todo-list {
-    width: 100%;
-  }
 }
