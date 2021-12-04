@@ -22,8 +22,10 @@ let id;
 const data = localStorage.getItem('TODO');
 
 // load items
+/* eslint-disable prefer-arrow-callback */
 function loadList(array) {
-  array.forEach(function(item){
+  array.forEach(function (item) {
+    /* eslint-disable no-use-before-define */
     addToDo(item.name, item.id, item.done, item.trash);
   });
 }
@@ -34,39 +36,39 @@ if (data) {
   id = LIST.length;
   loadList(LIST);
 } else {
-  //if data isn't empty
+  // if data isn't empty
   LIST = [];
   id = 0;
 }
 
 // clear local Storage
-clear.addEventListener("click", function(){
+/* eslint-disable prefer-arrow-callback */
+clear.addEventListener('click', function () {
   localStorage.clear();
   location.reload();
 });
 
 // add to-do function
 function addToDo(toDo, id, done, trash) {
-
-  if(trash){ return; }
+  if (trash){ return; }
 
   const DONE = done ? CHECK : UNCHECK;
-  const LINE = done ? LINE_THROUGH : "";
+  const LINE = done ? LINE_THROUGH : '';
 
   const item =
     `<li class="item">
       <i class="far ${DONE}" job="complete" id="${id}"></i>
       <p class="text ${LINE}"> ${toDo}</p>
       <i class="fas fa-trash-alt" job="delete" id="${id}"></i>
-    </li>`
+    </li>`;
 
-  const position = "beforeend";
+  const position = 'beforeend';
 
   list.insertAdjacentHTML(position, item);
 }
 
 // add an item to the list on enter key
-document.addEventListener("keyup", function(event) {
+document.addEventListener('keyup', function(event) {
   if(event.keyCode == 13) {
     const toDo = input.value;
 
@@ -82,11 +84,11 @@ document.addEventListener("keyup", function(event) {
         });
 
         // Add item from Local Storage
-        localStorage.setItem("TODO", JSON.stringify(LIST));
+        localStorage.setItem('TODO', JSON.stringify(LIST));
 
         id++
       }
-      input.value = "";
+      input.value = ';
   }
 })
 
@@ -94,7 +96,7 @@ document.addEventListener("keyup", function(event) {
 function completeToDo(element) {
   element.classList.toggle(CHECK);
   element.classList.toggle(UNCHECK);
-  element.parentNode.querySelector(".text").classList.toggle(LINE_THROUGH);
+  element.parentNode.querySelector('.text').classList.toggle(LINE_THROUGH);
 
   LIST[element.id].done = LIST[element.id].done ? false : true;
 }
@@ -107,16 +109,16 @@ function removeToDo(element) {
 }
 
 // target the element
-list.addEventListener("click", function(event){
+list.addEventListener('click', function(event){
   const element = event.target; //return click element inside list
   const elementJob = element.attributes.job.value; // complete or delete
 
-  if(elementJob == "complete"){
+  if(elementJob == 'complete'){
     completeToDo(element);
-  }else if(elementJob == "delete"){
+  }else if(elementJob == 'delete'){
     removeToDo(element);
   }
 
   // Add item from Local Storage
-  localStorage.setItem("TODO", JSON.stringify(LIST));
+  localStorage.setItem('TODO', JSON.stringify(LIST));
 });
