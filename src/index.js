@@ -88,7 +88,7 @@ document.addEventListener('keyup', function(event) {
 
         id++
       }
-      input.value = ';
+      input.value = '';
   }
 })
 
