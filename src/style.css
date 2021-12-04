@@ -91,5 +91,9 @@ body {
 }
 
 @media screen and (max-width: 480px) {
-  
+  .text {
+    font-size: 20px;
+    align-self: center;
+    padding-left: 10px;
+  }
 }
