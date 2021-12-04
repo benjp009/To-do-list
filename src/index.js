@@ -45,6 +45,7 @@ if (data) {
 /* eslint-disable prefer-arrow-callback */
 clear.addEventListener('click', function () {
   localStorage.clear();
+  /* eslint-disable no-restricted-globals */
   location.reload();
 });
 
@@ -55,7 +56,7 @@ function addToDo(toDo, id, done, trash) {
   const DONE = done ? CHECK : UNCHECK;
   const LINE = done ? LINE_THROUGH : '';
 
-  const item =`
+  const item = `
     <li class="item">
       <i class="far ${DONE}" job="complete" id="${id}"></i>
       <p class="text ${LINE}"> ${toDo}</p>
@@ -78,6 +79,7 @@ document.addEventListener('keyup', function (event) {
 
       LIST.push({
         name: toDo,
+        /* eslint-disable object-shorthand */
         id: id,
         done: false,
         trash: false,
@@ -86,8 +88,8 @@ document.addEventListener('keyup', function (event) {
       // Add item from Local Storage
       localStorage.setItem('TODO', JSON.stringify(LIST));
       /* eslint-disable no-plusplus */
-      id++
-    };
+      id++;
+    }
     input.value = '';
   }
 });
@@ -110,13 +112,13 @@ function removeToDo(element) {
 }
 
 // target the element
-list.addEventListener('click', function (event){
+list.addEventListener('click', function (event) {
   const element = event.target; // return click element inside list
   const elementJob = element.attributes.job.value; // complete or delete
 
   if (elementJob === 'complete') {
     completeToDo(element);
-  }else if (elementJob === 'delete') {
+  } else if (elementJob === 'delete') {
     removeToDo(element);
   }
 
