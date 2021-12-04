@@ -32,96 +32,96 @@ function loadList(array) {
 
 // check if data is not empty
 if (data) {
-  LIST = JSON.parse(data);
-  id = LIST.length;
-  loadList(LIST);
+LIST = JSON.parse(data);
+id = LIST.length;
+loadList(LIST);
 } else {
-  // if data isn't empty
-  LIST = [];
-  id = 0;
+// if data isn't empty
+LIST = [];
+id = 0;
 }
 
 // clear local Storage
 /* eslint-disable prefer-arrow-callback */
 clear.addEventListener('click', function () {
-  localStorage.clear();
-  /* eslint-disable no-restricted-globals */
-  location.reload();
+localStorage.clear();
+/* eslint-disable no-restricted-globals */
+location.reload();
 });
 
 // add to-do function
 function addToDo(toDo, id, done, trash) {
-  if (trash) { return; }
+if (trash) { return; }
 
-  const DONE = done ? CHECK : UNCHECK;
-  const LINE = done ? LINE_THROUGH : '';
+const DONE = done ? CHECK : UNCHECK;
+const LINE = done ? LINE_THROUGH : '';
 
-  const item = `
-    <li class="item">
-      <i class="far ${DONE}" job="complete" id="${id}"></i>
-      <p class="text ${LINE}"> ${toDo}</p>
-      <i class="fas fa-trash-alt" job="delete" id="${id}"></i>
-    </li>`;
+const item = `
+ <li class="item">
+   <i class="far ${DONE}" job="complete" id="${id}"></i>
+   <p class="text ${LINE}"> ${toDo}</p>
+   <i class="fas fa-trash-alt" job="delete" id="${id}"></i>
+ </li>`;
 
-  const position = 'beforeend';
+const position = 'beforeend';
 
-  list.insertAdjacentHTML(position, item);
+list.insertAdjacentHTML(position, item);
 }
 
 // add an item to the list on enter key
 document.addEventListener('keyup', function (event) {
-  if (event.keyCode === 13) {
-    const toDo = input.value;
+if (event.keyCode === 13) {
+ const toDo = input.value;
 
-    // if the input isn't empty
-    if (toDo) {
-      addToDo(toDo, id, false, false);
+ // if the input isn't empty
+ if (toDo) {
+   addToDo(toDo, id, false, false);
 
-      LIST.push({
-        name: toDo,
-        /* eslint-disable object-shorthand */
-        id: id,
-        done: false,
-        trash: false,
-      });
+   LIST.push({
+     name: toDo,
+     /* eslint-disable object-shorthand */
+     id: id,
+     done: false,
+     trash: false,
+   });
 
-      // Add item from Local Storage
-      localStorage.setItem('TODO', JSON.stringify(LIST));
-      /* eslint-disable no-plusplus */
-      id++;
-    }
-    input.value = '';
-  }
+   // Add item from Local Storage
+   localStorage.setItem('TODO', JSON.stringify(LIST));
+   /* eslint-disable no-plusplus */
+   id++;
+ }
+ input.value = '';
+}
 });
 
 // Complete to do
 function completeToDo(element) {
-  element.classList.toggle(CHECK);
-  element.classList.toggle(UNCHECK);
-  element.parentNode.querySelector('.text').classList.toggle(LINE_THROUGH);
+element.classList.toggle(CHECK);
+element.classList.toggle(UNCHECK);
+element.parentNode.querySelector('.text').classList.toggle(LINE_THROUGH);
 
-  /* eslint-disable no-unneeded-ternary */
-  LIST[element.id].done = LIST[element.id].done ? false : true;
+/* eslint-disable no-unneeded-ternary */
+LIST[element.id].done = LIST[element.id].done ? false : true;
 }
 
 // Remove to do
 function removeToDo(element) {
-  element.parentNode.parentNode.removeChild(element.parentNode);
+element.parentNode.parentNode.removeChild(element.parentNode);
 
-  LIST[element.id].trash = true;
+LIST[element.id].trash = true;
 }
 
 // target the element
 list.addEventListener('click', function (event) {
-  const element = event.target; // return click element inside list
-  const elementJob = element.attributes.job.value; // complete or delete
+const element = event.target; // return click element inside list
+const elementJob = element.attributes.job.value; // complete or delete
 
-  if (elementJob === 'complete') {
-    completeToDo(element);
-  } else if (elementJob === 'delete') {
-    removeToDo(element);
-  }
+if (elementJob === 'complete') {
+ completeToDo(element);
+} else if (elementJob === 'delete') {
+ removeToDo(element);
+}
 
-  // Add item from Local Storage
-  localStorage.setItem('TODO', JSON.stringify(LIST));
+// Add item from Local Storage
+localStorage.setItem('TODO', JSON.stringify(LIST));
 });
