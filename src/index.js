@@ -5,28 +5,35 @@ import '@fortawesome/fontawesome-free/js/solid';
 import '@fortawesome/fontawesome-free/js/regular';
 import '@fortawesome/fontawesome-free/js/brands';
 
-const clear = document.querySelector(".clear");
-const list = document.getElementById("list");
-const input = document.getElementById("input");
+const clear = document.querySelector('.clear');
+const list = document.getElementById('list');
+const input = document.getElementById('input');
 
 // classes name
-const CHECK = "fa-check-square";
-const UNCHECK = "fa-square";
-const LINE_THROUGH = "lineThrough";
-
+const CHECK = 'fa-check-square';
+const UNCHECK = 'fa-square';
+const LINE_THROUGH = 'lineThrough';
 
 // Variables
-let LIST, id;
+let LIST;
+let id;
 
 // Get item from Local Storage
-let data = localStorage.getItem("TODO");
+const data = localStorage.getItem('TODO');
+
+// load items
+function loadList(array) {
+  array.forEach(function(item){
+    addToDo(item.name, item.id, item.done, item.trash);
+  });
+}
 
 // check if data is not empty
-if(data) {
+if (data) {
   LIST = JSON.parse(data);
   id = LIST.length;
   loadList(LIST);
-}else{
+} else {
   //if data isn't empty
   LIST = [];
   id = 0;
@@ -37,13 +44,6 @@ clear.addEventListener("click", function(){
   localStorage.clear();
   location.reload();
 });
-
-// load items
-function loadList(array) {
-  array.forEach(function(item){
-    addToDo(item.name, item.id, item.done, item.trash);
-  });
-}
 
 // add to-do function
 function addToDo(toDo, id, done, trash) {
