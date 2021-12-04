@@ -59,7 +59,7 @@ The following tools help make easier to work with sample code.
 
 ## Authors
 
-👤 **Benjamin**
+👤 **Benjamin** 
 
 - GitHub: [@benjp009](https://github.com/benjp009)
 
