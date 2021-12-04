@@ -62,7 +62,7 @@ body {
   padding: 10px 0;
 }
 
-.fa-square{
+.fa-square {
   align-self: center;
   font-size: 18px;
 }
@@ -72,7 +72,6 @@ body {
   color: red;
   font-size: 18px;
 }
-
 
 .text {
   font-size: 20px;
@@ -91,6 +90,6 @@ body {
   color: grey;
 }
 
-
 @media screen and (max-width: 480px) {
+  
 }
