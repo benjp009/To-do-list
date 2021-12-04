@@ -4,116 +4,119 @@ import '@fortawesome/fontawesome-free/js/fontawesome';
 import '@fortawesome/fontawesome-free/js/solid';
 import '@fortawesome/fontawesome-free/js/regular';
 import '@fortawesome/fontawesome-free/js/brands';
-import TASKS from './tasks.js';
-import statusUpdates from './update-status.js';
 
-// Store Class: Handles localStorage
-class Store {
-  static getTasks() {
-    let tasks;
-    if (localStorage.getItem('tasks') === null) {
-      tasks = [...TASKS]; // copy the array
-      localStorage.setItem('tasks', JSON.stringify(tasks));
-    } else {
-      tasks = JSON.parse(localStorage.getItem('tasks'));
-    }
-    return tasks;
-  }
+const clear = document.querySelector(".clear");
+const list = document.getElementById("list");
+const input = document.getElementById("input");
 
-  static addTask(task) {
-    const tasks = Store.getTasks();
-    tasks.push(task);
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-  }
+// classes name
+const CHECK = "fa-check-square";
+const UNCHECK = "fa-square";
+const LINE_THROUGH = "lineThrough";
 
-  static changeTaskStatus(e) {
-    const TASKS = Store.getTasks();
 
-    const task = TASKS.find(
-      (t) => t.index === parseInt(e.target.id.split('-')[1], 10),
-    );
-    if (e.target.checked) {
-      statusUpdates.updateStatus(task, 'completed');
-    } else {
-      statusUpdates.updateStatus(task, 'uncompleted');
-    }
+// Variables
+let LIST, id;
 
-    localStorage.setItem('tasks', JSON.stringify(TASKS));
-  }
+// Get item from Local Storage
+let data = localStorage.getItem("TODO");
 
-  static removeTask(task) {
-    let tasks = Store.getTasks();
-    tasks = tasks.filter((t) => t.id !== task.id);
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-  }
+// check if data is not empty
+if(data) {
+  LIST = JSON.parse(data);
+  id = LIST.length;
+  loadList(LIST);
+}else{
+  //if data isn't empty
+  LIST = [];
+  id = 0;
 }
 
-// UI Class: Handle UI Class
-class UI {
-  static displayTasks() {
-    const tasks = Store.getTasks();
+// clear local Storage
+clear.addEventListener("click", function(){
+  localStorage.clear();
+  location.reload();
+});
 
-    tasks.forEach((task) => UI.addTaskToList(task));
-  }
+// load items
+function loadList(array) {
+  array.forEach(function(item){
+    addToDo(item.name, item.id, item.done, item.trash);
+  });
+}
 
-  static addTaskToList(task) {
-    const todoList = document.querySelector('.tasks');
-    // Create a new list item
-    const listItem = document.createElement('div');
-    // Add classname to the list item
-    listItem.classList.add('task');
+// add to-do function
+function addToDo(toDo, id, done, trash) {
 
-    // Add HTML to the list item
-    listItem.innerHTML = `
-   <input
-     type="checkbox"
-      id="task-${task.index}"
-   />
-   <label for="task-${task.index}">
-     <span class="custom-checkbox"></span>
-     ${task.description}
-   </label>
-   <svg xmlns="http://www.w3.org/2000/svg" class="todo-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-   </svg>
-   `;
+  if(trash){ return; }
 
-    // Add the list item to the todo-list
-    todoList.appendChild(listItem);
-  }
+  const DONE = done ? CHECK : UNCHECK;
+  const LINE = done ? LINE_THROUGH : "";
 
-  // keep completed tasks checked on page reload
-  static checkCompletedTasks() {
-    const tasks = Store.getTasks();
-    tasks.forEach((task) => {
-      if (task.completed === true) {
-        document.getElementById(`task-${task.index}`).checked = true;
+  const item =
+    `<li class="item">
+      <i class="far ${DONE}" job="complete" id="${id}"></i>
+      <p class="text ${LINE}"> ${toDo}</p>
+      <i class="fas fa-trash-alt" job="delete" id="${id}"></i>
+    </li>`
+
+  const position = "beforeend";
+
+  list.insertAdjacentHTML(position, item);
+}
+
+// add an item to the list on enter key
+document.addEventListener("keyup", function(event) {
+  if(event.keyCode == 13) {
+    const toDo = input.value;
+
+      // if the input isn't empty
+      if(toDo){
+        addToDo(toDo, id, false, false);
+
+        LIST.push({
+          name : toDo,
+          id : id,
+          done : false,
+          trash : false
+        });
+
+        // Add item from Local Storage
+        localStorage.setItem("TODO", JSON.stringify(LIST));
+
+        id++
       }
-    });
+      input.value = "";
   }
+})
 
-  static renderTaskCount() {
-    const tasks = Store.getTasks();
-    const uncompletedTasks = tasks.filter((task) => task.completed === false);
-    const taskCount = document.querySelector('.task-count');
-    taskCount.textContent = `${uncompletedTasks.length}`;
-  }
+// Complete to do
+function completeToDo(element) {
+  element.classList.toggle(CHECK);
+  element.classList.toggle(UNCHECK);
+  element.parentNode.querySelector(".text").classList.toggle(LINE_THROUGH);
 
-  static deleteTask(task) {
-    const taskList = document.querySelector('.tasks');
-    const taskItem = document.getElementById(`task-${task.index}`);
-    taskList.removeChild(taskItem);
-  }
+  LIST[element.id].done = LIST[element.id].done ? false : true;
 }
 
-document.addEventListener('DOMContentLoaded', UI.displayTasks);
+// Remove to do
+function removeToDo(element) {
+  element.parentNode.parentNode.removeChild(element.parentNode);
 
-document.addEventListener('DOMContentLoaded', UI.renderTaskCount);
+  LIST[element.id].trash = true
+}
 
-document.addEventListener('DOMContentLoaded', UI.checkCompletedTasks);
+// target the element
+list.addEventListener("click", function(event){
+  const element = event.target; //return click element inside list
+  const elementJob = element.attributes.job.value; // complete or delete
 
-// event listener for checkbox change
-document.querySelector('.tasks').addEventListener('change', (e) => {
-  Store.changeTaskStatus(e);
-  UI.renderTaskCount();
+  if(elementJob == "complete"){
+    completeToDo(element);
+  }else if(elementJob == "delete"){
+    removeToDo(element);
+  }
+
+  // Add item from Local Storage
+  localStorage.setItem("TODO", JSON.stringify(LIST));
 });
